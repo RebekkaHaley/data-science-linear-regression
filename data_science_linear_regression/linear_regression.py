@@ -14,11 +14,11 @@ class MyLinearRegression:
         """Calculates Pearson Correlation Coefficient (r).
 
         Args:
-            x (np.array of float): list of independent variables
-            y (np.array of float): list of dependent variables
+            x (np.array of float): List of independent variables.
+            y (np.array of float): List of dependent variables.
 
         Returns:
-            float: Pearson's correlation coefficient
+            float: Pearson's correlation coefficient.
         """
         x_mean = np.mean(x)
         y_mean = np.mean(y)
@@ -33,12 +33,12 @@ class MyLinearRegression:
         """Calculates slope (b) of regression line.
 
         Args:
-            x (np.array of float): list of independent variables
-            y (np.array of float): list of dependent variables
-            r (float): Pearson's correlation coefficient
+            x (np.array of float): List of independent variables.
+            y (np.array of float): List of dependent variables.
+            r (float): Pearson's correlation coefficient.
         
         Returns:
-            float: slope value
+            float: Slope value.
         """
         x_stdev = np.std(x, ddof=1)
         y_stdev = np.std(y, ddof=1)
@@ -49,12 +49,12 @@ class MyLinearRegression:
         """Calculates y-intercept (a) of regression line.
 
         Args:
-            x (np.array of float): list of independent variables
-            y (np.array of float): list of dependent variables
-            b (float): slope value
+            x (np.array of float): List of independent variables.
+            y (np.array of float): List of dependent variables.
+            b (float): Slope value.
 
         Returns:
-            float: y-intercept value
+            float: y-intercept value.
         """
         x_mean = np.mean(x)
         y_mean = np.mean(y)
@@ -65,8 +65,8 @@ class MyLinearRegression:
         """Calculates coefficients for the formula: y = a + bx, and writes to self.
 
         Args:
-            x (np.array of float): list of independent variables
-            y (np.array of float): list of dependent variables
+            x (np.array of float): List of independent variables.
+            y (np.array of float): List of dependent variables.
 
         Returns:
             None
@@ -81,9 +81,9 @@ class MyLinearRegression:
         """Calculates predicted y using: y = a + bx.
 
         Args:
-            x (np.array of float): list of independent variables
+            x (np.array of float): List of independent variables.
 
         Returns:
-            np.array of float: list of predicted 'y' dependent variables
+            np.array of float: List of predicted 'y' dependent variables.
         """
         return np.array([self.a + (self.b * x_i) for x_i in x]).flatten()
