@@ -12,6 +12,13 @@ class MyLinearRegression:
 
     def _calculate_r(self, x, y):
         """Calculates Pearson Correlation Coefficient (r).
+
+        Args:
+            x (np.array of float): list of independent variables
+            y (np.array of float): list of dependent variables
+
+        Returns:
+            todo: todo
         """
         x_mean = np.mean(x)
         y_mean = np.mean(y)
@@ -25,7 +32,13 @@ class MyLinearRegression:
     def _calculate_b(self, x, y, r):
         """Calculates slope (b) of regression line.
 
-        r: Pearson's correlation coefficient
+        Args:
+            x (np.array of float): list of independent variables
+            y (np.array of float): list of dependent variables
+            r (float): Pearson's correlation coefficient
+        
+        Returns:
+            todo: todo
         """
         x_stdev = np.std(x, ddof=1)
         y_stdev = np.std(y, ddof=1)
@@ -35,7 +48,13 @@ class MyLinearRegression:
     def _calculate_a(self, x, y, b):
         """Calculates y-intercept (a) of regression line.
 
-        b: Slope
+        Args:
+            x (np.array of float): list of independent variables
+            y (np.array of float): list of dependent variables
+            b (float): Slope value
+
+        Returns:
+            todo: todo
         """
         x_mean = np.mean(x)
         y_mean = np.mean(y)
@@ -44,6 +63,13 @@ class MyLinearRegression:
 
     def fit(self, x, y):
         """Calculates components of the linear regression formula: y = a + bx.
+
+        Args:
+            x (np.array of float): list of independent variables
+            y (np.array of float): list of dependent variables
+
+        Returns:
+            todo: todo
         """
         self.r = self._calculate_r(x, y)
         self.b = self._calculate_b(x, y, r=self.r)
@@ -53,5 +79,11 @@ class MyLinearRegression:
 
     def predict(self, x):
         """Calculates predicted y using: y = a + bx.
+
+        Args:
+            x (np.array of float): list of independent variables
+
+        Returns:
+            todo: todo
         """
         return np.array([self.a + (self.b * x_i) for x_i in x]).flatten()
