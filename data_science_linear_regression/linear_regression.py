@@ -18,7 +18,7 @@ class MyLinearRegression:
             y (np.array of float): list of dependent variables
 
         Returns:
-            todo: todo
+            float: Pearson's correlation coefficient
         """
         x_mean = np.mean(x)
         y_mean = np.mean(y)
@@ -38,7 +38,7 @@ class MyLinearRegression:
             r (float): Pearson's correlation coefficient
         
         Returns:
-            todo: todo
+            float: slope value
         """
         x_stdev = np.std(x, ddof=1)
         y_stdev = np.std(y, ddof=1)
@@ -51,10 +51,10 @@ class MyLinearRegression:
         Args:
             x (np.array of float): list of independent variables
             y (np.array of float): list of dependent variables
-            b (float): Slope value
+            b (float): slope value
 
         Returns:
-            todo: todo
+            float: y-intercept value
         """
         x_mean = np.mean(x)
         y_mean = np.mean(y)
@@ -62,14 +62,14 @@ class MyLinearRegression:
 
 
     def fit(self, x, y):
-        """Calculates components of the linear regression formula: y = a + bx.
+        """Calculates coefficients for the formula: y = a + bx, and writes to self.
 
         Args:
             x (np.array of float): list of independent variables
             y (np.array of float): list of dependent variables
 
         Returns:
-            todo: todo
+            None
         """
         self.r = self._calculate_r(x, y)
         self.b = self._calculate_b(x, y, r=self.r)
@@ -84,6 +84,6 @@ class MyLinearRegression:
             x (np.array of float): list of independent variables
 
         Returns:
-            todo: todo
+            np.array of float: list of predicted 'y' dependent variables
         """
         return np.array([self.a + (self.b * x_i) for x_i in x]).flatten()
