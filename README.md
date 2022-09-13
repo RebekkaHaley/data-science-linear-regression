@@ -1,6 +1,6 @@
 ## Welcome
 
-This repo contains code that re-creates scikit-learn's *'linear model'* from scratch as a Python class.
+This repo contains code that re-creates scikit-learn's *'linear_model.LinearRegression'* from scratch as a Python class.
 
 The model made from scratch uses the formula: **y = a + bx** and is available in: *'linear_regression.py'*.
 
