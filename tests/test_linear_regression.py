@@ -1,4 +1,5 @@
 import numpy as np
+from sklearn import linear_model
 
 from data_science_linear_regression.linear_regression import MyLinearRegression
 
@@ -31,3 +32,12 @@ def test_my_linear_regression_predict_b() -> None:
     assert y_pred[0] == 10
     assert y_pred[1] == 15
     assert y_pred[2] == 20
+
+def test_my_linear_regression_equal_to_sklearn() -> None:
+    my_regr = MyLinearRegression()
+    my_regr.fit(x=x_dummy, y=y_dummy)
+    my_y_pred = my_regr.predict(x=x_dummy)
+    sk_regr = linear_model.LinearRegression()
+    sk_regr.fit(x_dummy.reshape(-1, 1), y_dummy.reshape(-1, 1))
+    sk_y_pred = sk_regr.predict(x_dummy.reshape(-1, 1)).flatten()
+    np.testing.assert_allclose(my_y_pred, sk_y_pred, rtol=1e-5, atol=0)
